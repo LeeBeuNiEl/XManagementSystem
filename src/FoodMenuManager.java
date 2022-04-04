@@ -1,71 +1,51 @@
 import java.util.Scanner;
 
-public class FoodMenuManager {
-
-	public static void main(String[] args) {
-		
-		Scanner input = new Scanner(System.in);
-		
-		int num = 0;
-		
-		while (num != 6) {
-			System.out.println("1. Add Foods");
-			System.out.println("2. Delete Foods");
-			System.out.println("3. Edit Foods");
-			System.out.println("4. View Foods");
-			System.out.println("5. Show a Menu");
-			System.out.println("6. Exit");
-			System.out.print("Slect one number between 1-6 : ");
-			num = input.nextInt();
-			
-			if (num == 1) {
-				addFoods();
-			}
-			else if (num == 2) {
-				deleteFoods();
-			}
-			else if (num == 3) {
-				editFoods();
-			}
-			else if (num == 4) {
-				viewFoods();
-			}
-			else {
-				continue;
-			}
-		}
+public class FoodMenuManager{
+	Food food;
+	Scanner input;
+	FoodMenuManager(Scanner input){
+		this.input = input;
 	}
 
-	public static void addFoods() {
-		
-		Scanner input = new Scanner(System.in);
+	public void addFoods() {
+		food = new Food();
 		System.out.print("Food Number : ");
-		int foodnumber = input.nextInt();
+		food.number = input.nextInt();
 		System.out.print("Food Name : ");
 		String foodname = input.nextLine();
-		foodname = input.nextLine();
+		food.name = input.nextLine();
 		System.out.print("Store address : ");
-		String storeaddress = input.nextLine();
+		food.address = input.nextLine();
 		System.out.print("Store Number : ");
-		String storenumber = input.nextLine();
+		food.telephone = input.nextLine();
 	}
 	
-	public static void deleteFoods() {
-		
-		Scanner input = new Scanner(System.in);
+	public void deleteFoods() {
 		System.out.print("Food Number : ");
 		int foodnumber = input.nextInt();
+		if(food == null) {
+			System.out.println("the food has not been registered");
+			return;
+		}
+		if (food.number == foodnumber) {
+			food = null;
+			System.out.println("the food is deleted");
+		}
 	}
 	
-	public static void editFoods() {
-		Scanner input = new Scanner(System.in);
+	public void editFoods() {
 		System.out.print("Food Number : ");
 		int foodnumber = input.nextInt();
+		if (food.number == foodnumber) {
+			System.out.println("the food to be edited is " + foodnumber);
+		}
 	}
 	
-	public static void viewFoods() {
-		Scanner input = new Scanner(System.in);
+	public void viewFoods() {
 		System.out.print("Food Number : ");
 		int foodnumber = input.nextInt();
+		if (food.number == foodnumber) {
+			food.printInfo();
+		}
 	}
 }
