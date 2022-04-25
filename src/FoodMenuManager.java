@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import food.Food;
+import food.SaltyFood;
+
 public class FoodMenuManager{
 	ArrayList<Food> foods = new ArrayList<Food>();
 	Scanner input;
@@ -9,16 +12,47 @@ public class FoodMenuManager{
 	}
 
 	public void addFoods() {
-		Food food = new Food();
-		System.out.print("Food Number : ");
-		food.number = input.nextInt();
-		System.out.print("Food Name : ");
-		String foodname = input.nextLine();
-		food.name = input.nextLine();
-		System.out.print("Store address : ");
-		food.address = input.nextLine();
-		System.out.print("Store Number : ");
-		food.telephone = input.nextLine();
+		int kind = 0;
+		Food food;
+		while (kind != 1 && kind != 2 && kind != 3 && kind != 4 && kind != 5) {
+			System.out.print("1 for Salty");
+			System.out.print("2 for Sweet");
+			System.out.print("3 for Sour");
+			System.out.print("4 for Bitter");
+			System.out.print("5 for Spicy");
+			System.out.print("Select num for Food Kind between 1 to 5 : ");
+			kind = input.nextInt();
+			if (kind == 1) {
+				food = new SaltyFood();
+				food.getUserInput(input);
+				foods.add(food);
+				break;
+			}
+			else if (kind == 2) {
+				food = new Food();
+				foods.add(food);
+				break;
+			}
+			else if (kind == 3) {
+				food = new Food();
+				foods.add(food);
+				break;
+			}
+			else if (kind == 4) {
+				food = new Food();
+				foods.add(food);
+				break;
+			}
+			else if (kind == 5) {
+				food = new Food();
+				foods.add(food);
+				break;
+			}
+			else {
+				System.out.print("Select num for Food Kind between 1 to 5 : ");
+			}
+		}
+		 
 	}
 	
 	public void deleteFoods() {
@@ -26,14 +60,13 @@ public class FoodMenuManager{
 		int foodnumber = input.nextInt();
 		int index = -1;
 		for (int i =0; i < foods.size(); i++){
-			if(foods.get(i).number == foodnumber) {
+			if(foods.get(i).getNumber() == foodnumber) {
 				index = i;
 				break;
 			}
 		}
 		if (index >= 0) {
 			foods.remove(index);
-			Food.numFoodsRegistered--;
 			System.out.println("the food" + foodnumber + "is deleted");
 		}
 		else {
@@ -47,7 +80,7 @@ public class FoodMenuManager{
 		int foodnumber = input.nextInt();
 		for (int i = 0; i < foods.size(); i++) {
 			Food food = foods.get(i);
-			if (food.number == foodnumber) {
+			if (food.getNumber() == foodnumber) {
 				int num = -1;
 				while (num != 5) {
 					System.out.println("***********************");
@@ -61,31 +94,38 @@ public class FoodMenuManager{
 					
 					if (num == 1) {
 						System.out.print("Food Number : ");
-						food.number = input.nextInt();
+						int number = input.nextInt();
+						food.setNumber(number);
 					}
 					else if (num == 2) {
 						System.out.print("Food Name : ");
-						food.name = input.nextLine();
+						String foodname = input.nextLine();
+						String name = input.nextLine();
+						food.setName(name);
 					}
 					else if (num == 3) {
 						System.out.print("Store Address : ");
-						food.address = input.nextLine();
+						String foodname = input.nextLine();
+						String address = input.nextLine();
+						food.setAddress(address);
 					}
 					else if (num == 4) {
 						System.out.print("Store Telephone : ");
-						food.telephone = input.nextLine();
+						String foodname = input.nextLine();
+						String telephone = input.nextLine();
+						food.setTelephone(telephone);
 					}
 					else {
 						continue;
-					}
-				}
+					} // if
+				} // while
 				break;
-			}
-		}
+			} // if
+		} // while
 	}
 	
 	public void viewFoods() {
-		System.out.print("# of registered foods : " + Food.numFoodsRegistered);
+		System.out.println("# of registered foods : " + foods.size());
 		for (int i = 0; i < foods.size(); i++) {
 			foods.get(i).printInfo();
 		}
