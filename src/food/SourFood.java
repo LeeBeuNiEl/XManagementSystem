@@ -2,7 +2,8 @@ package food;
 
 import java.util.Scanner;
 
-public class SaltyFood extends Food {
+public class SourFood extends Food {
+	
 	public void getUserInput(Scanner input) {
 		System.out.print("Food Number : ");
 		int number = input.nextInt();
@@ -37,4 +38,5 @@ public class SaltyFood extends Food {
 		String telephone = input.nextLine();
 		this.setTelephone(telephone);
 	}
+
 }

@@ -1,8 +1,12 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import food.BitterFood;
 import food.Food;
 import food.SaltyFood;
+import food.SourFood;
+import food.SpicyFood;
+import food.SweetFood;
 
 public class FoodMenuManager{
 	ArrayList<Food> foods = new ArrayList<Food>();
@@ -15,11 +19,11 @@ public class FoodMenuManager{
 		int kind = 0;
 		Food food;
 		while (kind != 1 && kind != 2 && kind != 3 && kind != 4 && kind != 5) {
-			System.out.print("1 for Salty");
-			System.out.print("2 for Sweet");
-			System.out.print("3 for Sour");
-			System.out.print("4 for Bitter");
-			System.out.print("5 for Spicy");
+			System.out.println("1 for Salty");
+			System.out.println("2 for Sweet");
+			System.out.println("3 for Sour");
+			System.out.println("4 for Bitter");
+			System.out.println("5 for Spicy");
 			System.out.print("Select num for Food Kind between 1 to 5 : ");
 			kind = input.nextInt();
 			if (kind == 1) {
@@ -29,22 +33,26 @@ public class FoodMenuManager{
 				break;
 			}
 			else if (kind == 2) {
-				food = new Food();
+				food = new SweetFood();
+				food.getUserInput(input);
 				foods.add(food);
 				break;
 			}
 			else if (kind == 3) {
-				food = new Food();
+				food = new SourFood();
+				food.getUserInput(input);
 				foods.add(food);
 				break;
 			}
 			else if (kind == 4) {
-				food = new Food();
+				food = new BitterFood();
+				food.getUserInput(input);
 				foods.add(food);
 				break;
 			}
 			else if (kind == 5) {
-				food = new Food();
+				food = new SpicyFood();
+				food.getUserInput(input);
 				foods.add(food);
 				break;
 			}

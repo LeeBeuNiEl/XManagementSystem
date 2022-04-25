@@ -2,7 +2,7 @@ package food;
 
 import java.util.Scanner;
 
-public class SaltyFood extends Food {
+public class SpicyFood extends Food {
 	public void getUserInput(Scanner input) {
 		System.out.print("Food Number : ");
 		int number = input.nextInt();

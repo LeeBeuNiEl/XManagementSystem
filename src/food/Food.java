@@ -59,6 +59,23 @@ public class Food {
 		System.out.println("number : " + number + " name : " + name + " address : " + address + " telephone : " + telephone);
 	}
 	
-
+	public void getUserInput(Scanner input) {
+		System.out.print("Food Number : ");
+		int number = input.nextInt();
+		this.setNumber(number);
+		
+		System.out.print("Food Name : ");
+		String foodname = input.nextLine();
+		String name = input.nextLine();
+		this.setName(name);
+		
+		System.out.print("Store address : ");
+		String address = input.nextLine();
+		this.setAddress(address);
+		
+		System.out.print("Store Number : ");
+		String telephone = input.nextLine();
+		this.setTelephone(telephone);
+	}
 
 }
