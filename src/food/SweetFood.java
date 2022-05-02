@@ -3,6 +3,20 @@ package food;
 import java.util.Scanner;
 
 public class SweetFood extends Food {
+	
+	protected String level;
+	
+	public SweetFood(FoodKind kind) {
+		super(kind);
+	}
+	
+	public String getLevel() {
+		return level;
+	}
+	public void setLevel(String level) {
+		this.level = level;
+	}
+	
 	public void getUserInput(Scanner input) {
 		System.out.print("Food Number : ");
 		int number = input.nextInt();
@@ -13,18 +27,18 @@ public class SweetFood extends Food {
 		String name = input.nextLine();
 		this.setName(name);
 		
-		char answer = 'x';
-		while (answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N' ) 
+		char answer1 = 'x';
+		while (answer1 != 'y' && answer1 != 'Y' && answer1 != 'n' && answer1 != 'N' ) 
 		{
 			System.out.print("Do you have an email address? (Y/N)");
-			answer = input.nextLine().charAt(0);
-			if (answer == 'y' || answer == 'Y') {
+			answer1 = input.nextLine().charAt(0);
+			if (answer1 == 'y' || answer1 == 'Y') {
 				System.out.print("Store address : ");
 				String address = input.nextLine();
 				this.setAddress(address);
 				break;
 			}
-			else if (answer == 'n' || answer == 'N') {
+			else if (answer1 == 'n' || answer1 == 'N') {
 				this.setAddress("");
 				break;
 			}

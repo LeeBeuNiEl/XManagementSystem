@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 import food.BitterFood;
 import food.Food;
+import food.FoodKind;
 import food.SaltyFood;
 import food.SourFood;
 import food.SpicyFood;
@@ -27,31 +28,31 @@ public class FoodMenuManager{
 			System.out.print("Select num for Food Kind between 1 to 5 : ");
 			kind = input.nextInt();
 			if (kind == 1) {
-				food = new SaltyFood();
+				food = new SaltyFood(FoodKind.Salty);
 				food.getUserInput(input);
 				foods.add(food);
 				break;
 			}
 			else if (kind == 2) {
-				food = new SweetFood();
+				food = new SweetFood(FoodKind.Sweet);
 				food.getUserInput(input);
 				foods.add(food);
 				break;
 			}
 			else if (kind == 3) {
-				food = new SourFood();
+				food = new SourFood(FoodKind.Sour);
 				food.getUserInput(input);
 				foods.add(food);
 				break;
 			}
 			else if (kind == 4) {
-				food = new BitterFood();
+				food = new BitterFood(FoodKind.Bitter);
 				food.getUserInput(input);
 				foods.add(food);
 				break;
 			}
 			else if (kind == 5) {
-				food = new SpicyFood();
+				food = new SpicyFood(FoodKind.Spicy);
 				food.getUserInput(input);
 				foods.add(food);
 				break;

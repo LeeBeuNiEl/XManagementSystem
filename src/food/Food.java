@@ -12,12 +12,25 @@ public class Food {
 	
 	public Food() {
 	}
+	
+	public Food(FoodKind kind) {
+		this.kind = kind;
+	}
+	
 	public Food(int number, String name) {
 		this.number = number;
 		this.name = name;
 	}
 	
 	public Food(int number, String name, String address, String telephone) {
+		this.number = number;
+		this.name = name;
+		this.address = address;
+		this.telephone = telephone;
+	}
+	
+	public Food(FoodKind kind, int number, String name, String address, String telephone) {
+		this.kind = kind;
 		this.number = number;
 		this.name = name;
 		this.address = address;
@@ -55,8 +68,29 @@ public class Food {
 		this.telephone = telephone;
 	}
 	
+	
 	public void printInfo() {
-		System.out.println("number : " + number + " name : " + name + " address : " + address + " telephone : " + telephone);
+		String skind = "none";
+		switch(this.kind) {
+		case Salty:
+			skind = "Salty";
+			break;
+		case Sweet:
+			skind = "Sweet";
+			break;
+		case Sour:
+			skind = "Sour";
+			break;
+		case Bitter:
+			skind = "Bitter";
+			break;
+		case Spicy:
+			skind = "Spicy";
+			break;
+		default:
+		}
+		
+		System.out.println("kind" + skind + " number : " + number + " name : " + name + " address : " + address + " telephone : " + telephone);
 	}
 	
 	public void getUserInput(Scanner input) {
