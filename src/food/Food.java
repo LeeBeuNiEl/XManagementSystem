@@ -2,7 +2,7 @@ package food;
 
 import java.util.Scanner;
 
-public class Food {
+public abstract class Food {
 	
 	protected FoodKind kind = FoodKind.Spicy;
 	protected int number;
@@ -69,47 +69,6 @@ public class Food {
 	}
 	
 	
-	public void printInfo() {
-		String skind = "none";
-		switch(this.kind) {
-		case Salty:
-			skind = "Salty";
-			break;
-		case Sweet:
-			skind = "Sweet";
-			break;
-		case Sour:
-			skind = "Sour";
-			break;
-		case Bitter:
-			skind = "Bitter";
-			break;
-		case Spicy:
-			skind = "Spicy";
-			break;
-		default:
-		}
-		
-		System.out.println("kind" + skind + " number : " + number + " name : " + name + " address : " + address + " telephone : " + telephone);
-	}
-	
-	public void getUserInput(Scanner input) {
-		System.out.print("Food Number : ");
-		int number = input.nextInt();
-		this.setNumber(number);
-		
-		System.out.print("Food Name : ");
-		String foodname = input.nextLine();
-		String name = input.nextLine();
-		this.setName(name);
-		
-		System.out.print("Store address : ");
-		String address = input.nextLine();
-		this.setAddress(address);
-		
-		System.out.print("Store Number : ");
-		String telephone = input.nextLine();
-		this.setTelephone(telephone);
-	}
+	public abstract void printInfo();
 
 }

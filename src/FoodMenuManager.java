@@ -4,13 +4,14 @@ import java.util.Scanner;
 import food.BitterFood;
 import food.Food;
 import food.FoodKind;
+import food.FoodInput;
 import food.SaltyFood;
 import food.SourFood;
 import food.SpicyFood;
 import food.SweetFood;
 
 public class FoodMenuManager{
-	ArrayList<Food> foods = new ArrayList<Food>();
+	ArrayList<FoodInput> foods = new ArrayList<FoodInput>();
 	Scanner input;
 	FoodMenuManager(Scanner input){
 		this.input = input;
@@ -18,7 +19,7 @@ public class FoodMenuManager{
 
 	public void addFoods() {
 		int kind = 0;
-		Food food;
+		FoodInput foodInput;
 		while (kind != 1 && kind != 2 && kind != 3 && kind != 4 && kind != 5) {
 			System.out.println("1 for Salty");
 			System.out.println("2 for Sweet");
@@ -28,33 +29,33 @@ public class FoodMenuManager{
 			System.out.print("Select num for Food Kind between 1 to 5 : ");
 			kind = input.nextInt();
 			if (kind == 1) {
-				food = new SaltyFood(FoodKind.Salty);
-				food.getUserInput(input);
-				foods.add(food);
+				foodInput = new SaltyFood(FoodKind.Salty);
+				foodInput.getUserInput(input);
+				foods.add(foodInput);
 				break;
 			}
 			else if (kind == 2) {
-				food = new SweetFood(FoodKind.Sweet);
-				food.getUserInput(input);
-				foods.add(food);
+				foodInput = new SweetFood(FoodKind.Sweet);
+				foodInput.getUserInput(input);
+				foods.add(foodInput);
 				break;
 			}
 			else if (kind == 3) {
-				food = new SourFood(FoodKind.Sour);
-				food.getUserInput(input);
-				foods.add(food);
+				foodInput = new SourFood(FoodKind.Sour);
+				foodInput.getUserInput(input);
+				foods.add(foodInput);
 				break;
 			}
 			else if (kind == 4) {
-				food = new BitterFood(FoodKind.Bitter);
-				food.getUserInput(input);
-				foods.add(food);
+				foodInput = new BitterFood(FoodKind.Bitter);
+				foodInput.getUserInput(input);
+				foods.add(foodInput);
 				break;
 			}
 			else if (kind == 5) {
-				food = new SpicyFood(FoodKind.Spicy);
-				food.getUserInput(input);
-				foods.add(food);
+				foodInput = new SpicyFood(FoodKind.Spicy);
+				foodInput.getUserInput(input);
+				foods.add(foodInput);
 				break;
 			}
 			else {
@@ -88,8 +89,8 @@ public class FoodMenuManager{
 		System.out.print("Food Number : ");
 		int foodnumber = input.nextInt();
 		for (int i = 0; i < foods.size(); i++) {
-			Food food = foods.get(i);
-			if (food.getNumber() == foodnumber) {
+			FoodInput foodInput = foods.get(i);
+			if (foodInput.getNumber() == foodnumber) {
 				int num = -1;
 				while (num != 5) {
 					System.out.println("***********************");
@@ -104,25 +105,25 @@ public class FoodMenuManager{
 					if (num == 1) {
 						System.out.print("Food Number : ");
 						int number = input.nextInt();
-						food.setNumber(number);
+						foodInput.setNumber(number);
 					}
 					else if (num == 2) {
 						System.out.print("Food Name : ");
 						String foodname = input.nextLine();
 						String name = input.nextLine();
-						food.setName(name);
+						foodInput.setName(name);
 					}
 					else if (num == 3) {
 						System.out.print("Store Address : ");
 						String foodname = input.nextLine();
 						String address = input.nextLine();
-						food.setAddress(address);
+						foodInput.setAddress(address);
 					}
 					else if (num == 4) {
 						System.out.print("Store Telephone : ");
 						String foodname = input.nextLine();
 						String telephone = input.nextLine();
-						food.setTelephone(telephone);
+						foodInput.setTelephone(telephone);
 					}
 					else {
 						continue;

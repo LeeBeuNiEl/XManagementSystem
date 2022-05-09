@@ -2,7 +2,7 @@ package food;
 
 import java.util.Scanner;
 
-public class SourFood extends Food {
+public class SourFood extends Food implements FoodInput{
 	
 	protected String level;
 	
@@ -50,6 +50,30 @@ public class SourFood extends Food {
 		System.out.print("Store Number : ");
 		String telephone = input.nextLine();
 		this.setTelephone(telephone);
+	}
+	
+	public void printInfo() {
+		String skind = "none";
+		switch(this.kind) {
+		case Salty:
+			skind = "Salty";
+			break;
+		case Sweet:
+			skind = "Sweet";
+			break;
+		case Sour:
+			skind = "Sour";
+			break;
+		case Bitter:
+			skind = "Bitter";
+			break;
+		case Spicy:
+			skind = "Spicy";
+			break;
+		default:
+		}
+		
+		System.out.println("kind" + skind + " number : " + number + " name : " + name + " address : " + address + " telephone : " + telephone);
 	}
 
 }
