@@ -42,7 +42,7 @@ public class MainMenuManager {
 					input.next();
 				}
 				num = -1;
-			}
+			}// character형이 인자로 입력될 경우 오류문장 출력
 		}
 	}
 	
