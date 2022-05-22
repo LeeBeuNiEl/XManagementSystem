@@ -1,10 +1,16 @@
 package food;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 import exception.TelephoneFormatException;
 
-public abstract class Food implements FoodInput{
+public abstract class Food implements FoodInput, Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 413653737158155006L;
 	
 	protected FoodKind kind = FoodKind.Spicy;
 	protected int number;

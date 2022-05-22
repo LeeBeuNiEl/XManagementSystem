@@ -1,9 +1,9 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import food.BitterFood;
-import food.Food;
 import food.FoodKind;
 import food.FoodInput;
 import food.SaltyFood;
@@ -11,10 +11,15 @@ import food.SourFood;
 import food.SpicyFood;
 import food.SweetFood;
 
-public class FoodMenuManager{
+public class FoodMenuManager implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2822527830518646141L;
+	
 	// 입력한 음식 정보를 저장하는 배열
 	ArrayList<FoodInput> foods = new ArrayList<FoodInput>();
-	Scanner input;
+	transient Scanner input;
 	FoodMenuManager(Scanner input){
 		this.input = input;
 	}
