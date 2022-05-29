@@ -1,7 +1,7 @@
 package food;
 
 import java.util.Scanner;
-
+//소스가 필요한 클래스의 부모 클래스
 public abstract class SauceFood extends Food {
 	
 	public SauceFood(FoodKind kind) {
@@ -26,7 +26,7 @@ public abstract class SauceFood extends Food {
 		String skind = getKindString();
 		System.out.println("kind" + skind + " number : " + number + " name : " + name + " address : " + address + " additional sauce : " + level + " telephone : " + telephone);
 	}
-	
+	// 추가 소스가 필요한지 물어보고 필요하다면 개수 입력 및 저장하는 함수
 	public void setSauce(Scanner input) {
 		char answer2 = 'x';
 		while (answer2 != 'y' && answer2 != 'Y' && answer2 != 'n' && answer2 != 'N' ) 
@@ -46,7 +46,7 @@ public abstract class SauceFood extends Food {
 			else {
 				 
 			}
-		} // 추가 소스가 필요한지 물어보고 필요하다면 개수 입력 및 저장
+		}
 	}
 
 }

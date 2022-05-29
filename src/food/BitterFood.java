@@ -16,7 +16,7 @@ public class BitterFood extends Food{
 		setFoodAddresswithYN(input);
 		setFoodTelephone(input);
 	}
-	
+	// 음식의 정보를 출력하는 메소드
 	public void printInfo() {
 		String skind = getKindString();
 		System.out.println("kind" + skind + " number : " + number + " name : " + name + " address : " + address + " telephone : " + telephone);

@@ -59,11 +59,11 @@ public class FoodMenuManager implements Serializable{
 					input.next();
 				}
 				kind = -1;
-			}
+			} // character형이 인자로 입력될 경우 오류문장 출력
 		}
 		 
 	}
-	
+	// 음식의 종류에 따라 정보를 입력하는 함수
 	public void setSaltyFood(FoodInput food, Scanner input) {
 		food = new SaltyFood(FoodKind.Salty);
 		food.getUserInput(input);
@@ -93,7 +93,7 @@ public class FoodMenuManager implements Serializable{
 		food.getUserInput(input);
 		foods.add(food);
 	}
-	
+	// 음식의 종류를 출력하는 함수
 	public void showAddMenu() {
 		System.out.println("1 for Salty");
 		System.out.println("2 for Sweet");
@@ -110,7 +110,7 @@ public class FoodMenuManager implements Serializable{
 		int index = findIndex(foodnumber);
 		removefromfoods(index, foodnumber);
 	}
-	
+	// 입력된 번호와 같은 배열에 저장된 음식의 번호의 위치를 찾는 함수
 	public int findIndex(int foodnumber) {
 		int index = -1;
 		for (int i =0; i < foods.size(); i++){
@@ -121,7 +121,7 @@ public class FoodMenuManager implements Serializable{
 		}
 		return index;
 	}
-	
+	// 음식 삭제시 문장 출력 함수
 	public int removefromfoods(int index, int foodnumber) {
 		if (index >= 0) {
 			foods.remove(index);
@@ -170,7 +170,7 @@ public class FoodMenuManager implements Serializable{
 	}
 	
 	
-	
+	// 수정 메뉴를 출력하는 함수
 	public void showEditMenu() {
 		System.out.println("***********************");
 		System.out.println("1. edit number");

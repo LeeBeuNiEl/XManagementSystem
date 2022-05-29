@@ -24,6 +24,7 @@ public class SpicyFood extends Food{
 		setFoodName(input);
 		setFoodAddresswithYN(input);
 		
+		// 추가 소스가 필요한지 물어보고 필요하다면 개수 입력 및 저장
 		char answer2 = 'x';
 		while (answer2 != 'y' && answer2 != 'Y' && answer2 != 'n' && answer2 != 'N' ) 
 		{
@@ -42,11 +43,10 @@ public class SpicyFood extends Food{
 			else {
 				
 			}
-		} // 추가 소스가 필요한지 물어보고 필요하다면 개수 입력 및 저장
-		
+		} 
 		setFoodTelephone(input);
 	}
-	
+	// 음식의 정보를 출력하는 메소드
 	public void printInfo() {
 		String skind = getKindString();
 		System.out.println("kind" + skind + " number : " + number + " name : " + name + " address : " + address + " spicy level : " + level + " telephone : " + telephone);

@@ -84,20 +84,20 @@ public abstract class Food implements FoodInput, Serializable{
 	
 	// 자식클래스에 필요한 공통 메소드를 선언
 	public abstract void printInfo();
-	
+	// 음식의 번호를 저장하는 함수
 	public void setFoodNumber(Scanner input) {
 		System.out.print("Food Number : ");
 		int number = input.nextInt();
 		this.setNumber(number);
 	}
-	
+	// 음식의 이름을 저장하는 함수
 	public void setFoodName(Scanner input) {
 		System.out.print("Food Name : ");
 		String foodname = input.nextLine();
 		String name = input.nextLine();
 		this.setName(name);
 	}
-	
+	// 가게 주소 유무를 물어보는 함수
 	public void setFoodAddresswithYN(Scanner input) {
 		char answer1 = 'x';
 		while (answer1 != 'y' && answer1 != 'Y' && answer1 != 'n' && answer1 != 'N' ) 
@@ -117,14 +117,14 @@ public abstract class Food implements FoodInput, Serializable{
 			}
 		}
 	}
-	
+	// 가게 주소를 저장하는 함수
 	public void setFoodAddress(Scanner input) {
 		System.out.print("Store Address : ");
 		String foodaddress = input.nextLine();
 		String address = input.nextLine();
 		this.setAddress(address);
 	}
-	
+	// 가게 번호를 저장하는 함수
 	public void setFoodTelephone(Scanner input) {
 		String telephone = "";
 		while (!telephone.contains("-")) {
@@ -134,10 +134,10 @@ public abstract class Food implements FoodInput, Serializable{
 				this.setTelephone(telephone);
 			} catch (TelephoneFormatException e) {
 				System.out.println("Incorrect Format. put the telephone number like 010-1234-5678 ");
-			}
+			}// 입력한 가게 번호에 - 가 빠진 경우 오류에 대한 문장 출력
 		}
 	}
-	
+	// 입력된 번호에 따라 skind에 문자열을 저장하는 함수
 	public String getKindString() {
 		String skind = "none";
 		switch(this.kind) {

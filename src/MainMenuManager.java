@@ -12,7 +12,7 @@ import log.EventLogger;
 public class MainMenuManager {
 	
 	static EventLogger logger = new EventLogger("log.txt");
-
+	// logging을 foodmenumanager파일에 기록한다.
 	public static void main(String[] args) {
 		
 		Scanner input = new Scanner(System.in);
@@ -63,7 +63,7 @@ public class MainMenuManager {
 		}
 	}
 	
-	public static void showMenu() {
+	public static void showMenu() { // 메뉴 출력 함수
 		System.out.println("***********************");
 		System.out.println("1. Add Food");
 		System.out.println("2. Delete Food");
@@ -72,7 +72,7 @@ public class MainMenuManager {
 		System.out.println("5. Exit");
 		System.out.print("Slect one number between 1-5 : ");
 	}
-	
+	// 해당 파일에 log정보를 Serialize한다.
 	public static FoodMenuManager getObject(String filename) {
 		FoodMenuManager foodmenumanager = null;
 		
@@ -96,7 +96,7 @@ public class MainMenuManager {
 		return foodmenumanager;
 		
 	}
-	
+	// 해당 파일에 Serialize된 정보를 바이트 형식으로 출력한다.
 	public static void putObject(FoodMenuManager foodmenumanager, String filename) {
 		
 		try {

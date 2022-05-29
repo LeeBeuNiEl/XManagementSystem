@@ -18,7 +18,7 @@ public class SaltyFood extends SauceFood{
 	}
 	
 	
-	
+	// 음식의 정보를 출력하는 메소드
 	public void printInfo() {
 		String skind = getKindString();
 		System.out.println("kind" + skind + " number : " + number + " name : " + name + " address : " + address + " salty sauce : " + level + " telephone : " + telephone);
