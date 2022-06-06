@@ -7,9 +7,13 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-public class FoodAdder extends JFrame {
+public class FoodAdder extends JPanel {
+	
+	WindowFrame frame;
 
-	public FoodAdder() {
+	public FoodAdder(WindowFrame frame) {
+		this.frame = frame; 
+		
 		// 패널속 component를 SpringLayout형식으로 배열
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout());
@@ -46,13 +50,8 @@ public class FoodAdder extends JFrame {
 		// 패널 속 내용들을 행렬형식으로 위치를 설정하여 배치
 		SpringUtilities.makeCompactGrid(panel, 5, 2, 6, 6, 6, 6);
 		
-		// 프레임의 크기를 설정하고 프로그램 종료시 디버깅 종료
-		this.setSize(300, 300);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		// 프레임을 panel로 채우고 가시화
-		this.setContentPane(panel);
-		this.setVisible(true);
+		// panel을 추가
+		this.add(panel);
 		
 	}
 	

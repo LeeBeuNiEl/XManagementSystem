@@ -11,9 +11,15 @@ public interface FoodInput {
 	
 	public void setNumber(int number);
 	
+	public String getName();
+	
 	public void setName(String name);
 	
+	public String getAddress();
+	
 	public void setAddress(String address);
+	
+	public String getTelephone();
 	
 	public void setTelephone(String telephone) throws TelephoneFormatException;
 	

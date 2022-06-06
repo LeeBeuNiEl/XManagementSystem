@@ -120,7 +120,6 @@ public abstract class Food implements FoodInput, Serializable{
 	// 가게 주소를 저장하는 함수
 	public void setFoodAddress(Scanner input) {
 		System.out.print("Store Address : ");
-		String foodaddress = input.nextLine();
 		String address = input.nextLine();
 		this.setAddress(address);
 	}

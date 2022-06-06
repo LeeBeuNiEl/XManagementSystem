@@ -7,12 +7,17 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class MenuSelection extends JFrame{
+import listeners.ButtonAddListener;
+import listeners.ButtonViewListener;
+
+public class MenuSelection extends JPanel{
 	
-	public MenuSelection() {
-		// 프레임의 크기를 설정하고 프로그램 종료시 디버깅 종료
-		this.setSize(300, 300);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	WindowFrame frame;
+	
+	public MenuSelection(WindowFrame frame) {
+		this.frame = frame;
+		
+		this.setLayout(new BorderLayout());
 		
 		// 패널 생성
 		JPanel panel1 = new JPanel();
@@ -28,6 +33,9 @@ public class MenuSelection extends JFrame{
 		JButton button4 = new JButton("View Food");
 		JButton button5 = new JButton("Exit Program");
 		
+		button1.addActionListener(new ButtonAddListener(frame));
+		button4.addActionListener(new ButtonViewListener(frame));
+		
 		// 패널에 레이블과 버튼 추가
 		panel1.add(label);
 		panel2.add(button1);
@@ -40,7 +48,6 @@ public class MenuSelection extends JFrame{
 		this.add(panel1, BorderLayout.NORTH);
 		this.add(panel2, BorderLayout.CENTER);
 		
-		// 프레임을 가시화
-		this.setVisible(true);
+
 	}
 }

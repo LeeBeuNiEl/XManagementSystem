@@ -1,3 +1,4 @@
+package manager;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -7,11 +8,13 @@ import java.io.ObjectOutputStream;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import gui.WindowFrame;
 import log.EventLogger;
 
 public class MainMenuManager {
 	
 	static EventLogger logger = new EventLogger("log.txt");
+	
 	// logging을 foodmenumanager파일에 기록한다.
 	public static void main(String[] args) {
 		
@@ -19,7 +22,11 @@ public class MainMenuManager {
 		FoodMenuManager foodmenumanager = getObject("foodmenumanager.ser");
 		if (foodmenumanager == null) {
 			foodmenumanager = new FoodMenuManager(input);
+		}else {
+			foodmenumanager.input = input;
 		}
+		
+		WindowFrame frame = new WindowFrame(foodmenumanager);
 		selectMenu(input, foodmenumanager);
 		putObject(foodmenumanager, "foodmenumanager.ser");
 	}
@@ -70,7 +77,7 @@ public class MainMenuManager {
 		System.out.println("3. Edit Food");
 		System.out.println("4. View Foods");
 		System.out.println("5. Exit");
-		System.out.print("Slect one number between 1-5 : ");
+		System.out.println("Slect one number between 1-5 : ");
 	}
 	// 해당 파일에 log정보를 Serialize한다.
 	public static FoodMenuManager getObject(String filename) {

@@ -1,13 +1,29 @@
 package gui;
 
+import java.util.Vector;
+
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class FoodViewer extends JFrame {
+import food.FoodInput;
+import manager.FoodMenuManager;
 
-	public FoodViewer() {
+public class FoodViewer extends JPanel {
+	
+	WindowFrame frame;
+	
+	FoodMenuManager foodmenumanager;
+
+	public FoodViewer(WindowFrame frame, FoodMenuManager foodmenumanager) {
+		this.frame = frame;
+		this.foodmenumanager = foodmenumanager;
+		
+		// 저장된 음식의 수를 출력
+		System.out.println("***" + foodmenumanager.size() + "***");
+		
 		// 정보에 대한 행을 생성
 		DefaultTableModel model = new DefaultTableModel();
 		model.addColumn("Number");
@@ -15,14 +31,22 @@ public class FoodViewer extends JFrame {
 		model.addColumn("Address");
 		model.addColumn("Telephone");
 		
+		// 입력된 정보를 GUI속 하나의 row에 순서대로 추가하는 함수
+		for (int i=0; i<foodmenumanager.size(); i++) {
+			Vector row = new Vector();
+			FoodInput fi = foodmenumanager.get(i);
+			row.add(fi.getNumber());
+			row.add(fi.getName());
+			row.add(fi.getAddress());
+			row.add(fi.getTelephone());
+			model.addRow(row);
+		}
+		
 		JTable table = new JTable(model);
 		JScrollPane sp = new JScrollPane(table);
 		
-		// 프레임에 sp를 추가, 프레임 크기 설정, 프로그램의 종료와 디버깅 종료의 동시성 부여, 프로그램의 가시성 부여
+		// 패널에 sp(스크롤 팬)를 추가
 		this.add(sp);
-		this.setSize(300, 300);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setVisible(true);
 	}
 
 }

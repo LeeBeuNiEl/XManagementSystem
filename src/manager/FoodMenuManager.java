@@ -1,9 +1,11 @@
+package manager;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import food.BitterFood;
+import food.Food;
 import food.FoodKind;
 import food.FoodInput;
 import food.SaltyFood;
@@ -179,6 +181,16 @@ public class FoodMenuManager implements Serializable{
 		System.out.println("4. edit telephone number");
 		System.out.println("5. Exit");
 		System.out.print("Slect one number between 1-5 : ");
+	}
+	
+	// 저장된 음식의 수를 반환하는 함수
+	public int size() {
+		return foods.size();
+	}
+	
+	// 
+	public FoodInput get(int index) {
+		return (Food) foods.get(index);
 	}
 	
 	// 저장된 음식의 개수와 정보 출력
