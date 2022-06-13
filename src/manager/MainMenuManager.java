@@ -82,7 +82,6 @@ public class MainMenuManager {
 	// 해당 파일에 log정보를 Serialize한다.
 	public static FoodMenuManager getObject(String filename) {
 		FoodMenuManager foodmenumanager = null;
-		
 		try {
 			FileInputStream file = new FileInputStream(filename);
 			ObjectInputStream in = new ObjectInputStream(file);
@@ -99,10 +98,9 @@ public class MainMenuManager {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		
-		return foodmenumanager;
-		
+		return foodmenumanager;	
 	}
+	
 	// 해당 파일에 Serialize된 정보를 바이트 형식으로 출력한다.
 	public static void putObject(FoodMenuManager foodmenumanager, String filename) {
 		

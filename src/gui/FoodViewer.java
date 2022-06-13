@@ -17,6 +17,39 @@ public class FoodViewer extends JPanel {
 	
 	FoodMenuManager foodmenumanager;
 
+	public FoodMenuManager getFoodmenumanager() {
+		return foodmenumanager;
+	}
+
+	public void setFoodmenumanager(FoodMenuManager foodmenumanager) {
+		this.foodmenumanager = foodmenumanager;
+		this.removeAll();
+		
+		// 정보에 대한 행을 생성
+		DefaultTableModel model = new DefaultTableModel();
+		model.addColumn("Number");
+		model.addColumn("Name");
+		model.addColumn("Address");
+		model.addColumn("Telephone");
+
+		// 입력된 정보를 GUI속 하나의 row에 순서대로 추가하는 함수
+		for (int i=0; i<foodmenumanager.size(); i++) {
+			Vector row = new Vector();
+			FoodInput fi = foodmenumanager.get(i);
+			row.add(fi.getNumber());
+			row.add(fi.getName());
+			row.add(fi.getAddress());
+			row.add(fi.getTelephone());
+			model.addRow(row);
+		}
+
+		JTable table = new JTable(model);
+		JScrollPane sp = new JScrollPane(table);
+
+		// 패널에 sp(스크롤 팬)를 추가
+		this.add(sp);
+	}
+
 	public FoodViewer(WindowFrame frame, FoodMenuManager foodmenumanager) {
 		this.frame = frame;
 		this.foodmenumanager = foodmenumanager;

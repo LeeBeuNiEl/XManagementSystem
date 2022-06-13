@@ -9,18 +9,18 @@ import gui.FoodAdder;
 import gui.FoodViewer;
 import gui.WindowFrame;
 
-public class ButtonAddListener implements ActionListener {
+public class FoodAdderCancelListener implements ActionListener {
 	
 	WindowFrame frame;
 
-	public ButtonAddListener(WindowFrame frame) {
+	public FoodAdderCancelListener(WindowFrame frame) {
 		this.frame = frame;
 	}
 
-	// 프레임에 adder패널을 띄우는 함수
+	// 프레임을 초기 화면을 띄우는 함수
 	public void actionPerformed(ActionEvent e) {
 		frame.getContentPane().removeAll();
-		frame.getContentPane().add(frame.getFoodadder());
+		frame.getContentPane().add(frame.getMenuselection());
 		frame.revalidate();
 		frame.repaint();
 	}

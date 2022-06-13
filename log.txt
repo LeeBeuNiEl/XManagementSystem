@@ -1,4 +1,0 @@
-6월 06, 2022 8:06:24 오후 log.EventLogger log
-정보: add a food
-6월 06, 2022 8:08:13 오후 log.EventLogger log
-정보: add a food

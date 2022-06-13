@@ -15,7 +15,7 @@ public class WindowFrame extends JFrame{
 	public WindowFrame(FoodMenuManager foodmenumanager) {
 		this.foodmenumanager = foodmenumanager;
 		this.menuselection = new MenuSelection(this);
-		this.foodadder = new FoodAdder(this);
+		this.foodadder = new FoodAdder(this, this.foodmenumanager);
 		this.foodviewer = new FoodViewer(this, this.foodmenumanager);
 		
 		// 프레임의 크기를 설정하고 프로그램 종료시 디버깅 종료

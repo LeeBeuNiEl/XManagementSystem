@@ -25,6 +25,16 @@ public class FoodMenuManager implements Serializable{
 	FoodMenuManager(Scanner input){
 		this.input = input;
 	}
+	
+	public void addFoods(String number, String name, String address, String telephone) {
+		FoodInput food = new SourFood(FoodKind.Sour);
+		food.getUserInput(input);
+		foods.add(food);
+	}
+	
+	public void addFoods(FoodInput foodInput) {
+		foods.add(foodInput);
+	}
 
 	// 음식의 종류를 고르고 정보를 입력해 저장
 	public void addFoods() {
